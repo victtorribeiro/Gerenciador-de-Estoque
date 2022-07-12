@@ -1,5 +1,6 @@
 package github.victtorribeiro.domain.entity;
 
+import github.victtorribeiro.domain.enums.TypeProduct;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,11 +17,12 @@ import java.time.LocalDate;
 public class Product {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     @Enumerated(value = EnumType.STRING)
-    private String type;
+    private TypeProduct type;
 
     @Column
     private String description;
